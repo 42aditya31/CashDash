@@ -9,31 +9,31 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(uuid())
-  clerkUserId   String    @unique // clerk user id
-  email         String    @unique
-  name          String?
-  imageUrl      String?
-  transactions  Transaction[]
-  accounts      Account[]
-  budgets       Budget[]
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  id           String    @id @default(uuid())  
+  clerkUserId  String    @unique // Clerk's user ID (unique for authentication)
+  email        String    @unique
+  name         String?   // Optional user name
+  imageUrl     String?   // Optional profile image URL
+  transactions Transaction[] // One-to-many relationship with transactions
+  accounts     Account[] // One-to-many relationship with accounts
+  budgets      Budget[]  // One-to-one relationship with budgets
+  createdAt    DateTime  @default(now())  // Timestamp of creation
+  updatedAt    DateTime  @updatedAt       // Auto-updated timestamp
 
   @@map("users")
 }
 
 model Account {
-  id           String        @id @default(uuid())
-  name         String
-  type         AccountType
-  balance      Decimal       @default(0) // will ask inital balance while creating an account
-  isDefault    Boolean       @default(false)
-  userId       String
-  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  transactions Transaction[]
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  id          String        @id @default(uuid())
+  name        String        // Account name
+  type        AccountType   // Type of account (e.g., CURRENT, SAVINGS)
+  balance     Decimal       @default(0) // Initial balance, default is 0
+  isDefault   Boolean       @default(false) // If true, this is the default account
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[] // One-to-many relationship with transactions
+  createdAt   DateTime      @default(now())  // Timestamp of creation
+  updatedAt   DateTime      @updatedAt       // Auto-updated timestamp
 
   @@index([userId])
   @@map("accounts")
@@ -41,38 +41,37 @@ model Account {
 
 model Transaction {
   id                String            @id @default(uuid())
-  type             TransactionType
-  amount           Decimal
-  description      String?
-  date             DateTime
-  category         String           
-  receiptUrl       String?
-  isRecurring      Boolean           @default(false)
-  recurringInterval RecurringInterval? // Only used if isRecurring is true
-  nextRecurringDate DateTime?         // Next date for recurring transaction
-  lastProcessed    DateTime?         // Last time this recurring transaction was processed
-  status           TransactionStatus  @default(COMPLETED)
-  userId           String
-  user             User              @relation(fields: [userId], references: [id], onDelete: Cascade)
-  accountId        String
-  account          Account           @relation(fields: [accountId], references: [id], onDelete: Cascade)
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
+  type              TransactionType   // Type: INCOME or EXPENSE
+  amount            Decimal           // Transaction amount
+  description       String?           // Optional description
+  date              DateTime          // Date of the transaction
+  category          String            // Category of the transaction (e.g., Food, Rent)
+  receiptUrl        String?           // Optional receipt/image URL
+  isRecurring       Boolean           @default(false) // Indicates if recurring
+  recurringInterval RecurringInterval? // Interval if transaction is recurring
+  nextRecurringDate DateTime?         // Next occurrence for recurring transactions
+  lastProcessed     DateTime?         // Last time this recurring transaction was processed
+  status            TransactionStatus  @default(COMPLETED) // Status: PENDING, COMPLETED, FAILED
+  userId            String
+  user              User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accountId         String
+  account           Account           @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  createdAt         DateTime          @default(now())  // Timestamp of creation
+  updatedAt         DateTime          @updatedAt       // Auto-updated timestamp
 
   @@index([userId])
   @@index([accountId])
   @@map("transactions")
 }
 
-
 model Budget {
-  id          String       @id @default(uuid())
-  amount      Decimal
-  lastAlertSent DateTime?  // Track when the last alert was sent
-  userId      String       @unique
-  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  id            String    @id @default(uuid())
+  amount        Decimal   // Budget amount
+  lastAlertSent DateTime? // Tracks last alert notification
+  userId        String    @unique // Ensures one budget per user
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime  @default(now())  // Timestamp of creation
+  updatedAt     DateTime  @updatedAt       // Auto-updated timestamp
 
   @@index([userId])
   @@map("budgets")
