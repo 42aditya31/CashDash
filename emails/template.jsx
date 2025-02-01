@@ -12,7 +12,7 @@ import {
   // Dummy data for preview
   const PREVIEW_DATA = {
     monthlyReport: {
-      userName: "John Doe",
+      userName: "Sharma Aditya",
       type: "monthly-report",
       data: {
         month: "December",
@@ -35,7 +35,7 @@ import {
       },
     },
     budgetAlert: {
-      userName: "John Doe",
+      userName: "Sharma Aditya",
       type: "budget-alert",
       data: {
         percentageUsed: 85,
