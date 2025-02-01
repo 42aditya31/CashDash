@@ -2,13 +2,14 @@
   "name": "cashdash",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "email": "email dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+"scripts": {
+  "dev": "next dev --turbopack",
+  "email": "email dev",
+  "build": "prisma generate && next build",
+  "start": "next start",
+  "lint": "next lint",
+  "postinstall": "prisma generate"
+},
   "dependencies": {
     "@arcjet/next": "^1.0.0-beta.1",
     "@clerk/nextjs": "^6.10.4",
