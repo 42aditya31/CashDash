@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "sonner";
+
 
 export const metadata = {
   title: "CashBash",
@@ -18,7 +20,7 @@ export default function RootLayout({ children }) {
           {/* Header */}
           <Header />
           <main className="min-h-screen">{children}</main>
-
+          <Toaster richColors />
           {/* Footer */}
           <Footer />
         </body>
