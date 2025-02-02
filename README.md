@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💰 CashBash - AI-Powered Finance Platform
 
-## Getting Started
+🚀 **Automate Your Finances. Simplify Your Life.**  
 
-First, run the development server:
+Most developers waste time reinventing the wheel. But real innovation isn’t about starting from zero—it’s about using **the best tools** to build smarter and faster. That’s exactly what **CashBash** does—an **AI-powered finance platform** built to **automate finance management** and **simplify expense tracking**. 💡
 
+---
+
+## 🌟 Why Choose CashBash?
+
+✅ **📸 AI Receipt Scanner** – Upload receipts, and AI extracts details automatically  
+📊 **📈 Graphical Transaction Insights** – Get real-time visualized expense data  
+📨 **📅 Automated Monthly Reports** – No manual tracking, no hassle  
+⚡ **⚡ Ultra-Fast & Scalable** – Built for seamless performance  
+🔒 **🔐 Secure Authentication** – User data is protected with Clerk Auth  
+
+---
+
+## 🛠️ Tech Stack 🚀
+
+| 🏗️ Technology       | 🛠️ Purpose  |
+|------------------|----------|
+| **⚛️ React 19 + Next.js 15** | Modern, scalable architecture |
+| **🎨 Tailwind CSS** | Sleek, responsive design |
+| **🛢️ Supabase + Prisma** | Powerful backend & database management |
+| **🔑 Clerk Authentication** | Secure, seamless user access |
+| **🔄 Inngest Functions** | Automated workflows (e.g., monthly reports) |
+| **🚀 Arcjet + ShadCN UI** | High-performance UI components |
+
+---
+
+## 🏗️ Installation & Setup 🛠️
+
+### 🔹 1️⃣ Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+ git clone https://github.com/42aditya31/CashDash.git
+ cd cashbash
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔹 2️⃣ Install Dependencies
+```bash
+npm install  # or yarn install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🔹 3️⃣ Set Up Environment Variables
+Create a `.env` file in the root directory and add the following:
+```env
+DATABASE_URL=
+DIRECT_URL=
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/onboarding
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 
-## Learn More
+GEMINI_API_KEY=
 
-To learn more about Next.js, take a look at the following resources:
+RESEND_API_KEY=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ARCJET_KEY=
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔹 4️⃣ Run the Development Server
+```bash
+npm run dev  # or yarn dev
+```
+💻 Your app should now be running at `http://localhost:3000/` 🎉
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 💡 Pro Tip 💡
+> *A developer with 1,000 skills practiced once is just another coder. But a developer who has mastered one skill 1,000 times is a force to be reckoned with.*
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🚀 **CashBash is built with this philosophy—leveraging cutting-edge technology to maximize efficiency and innovation.**
+
+---
+
+## 🌍 Try It Yourself 🌍
+
+🔗 **GitHub**: [Check out the code](https://github.com/42aditya31/CashDash)  
+🌐 **Live Demo**: [Try CashBash Now](https://cash-dash-bfy5.vercel.app/dashboard)  
+
+---
+
+## 🤝 Contribute & Build Together 🤝
+
+We welcome contributions! If you’d like to improve CashBash, feel free to **fork the repo**, create a **new branch**, and submit a **pull request**.
+
+---
+
+
